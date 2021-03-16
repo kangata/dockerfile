@@ -1,5 +1,7 @@
 FROM php:7.3-cli-alpine
 
+COPY ./tzone.ini /usr/local/etc/php/conf.d/
+
 RUN apk update add --no-cache git tzdata \
     && docker-php-ext-install mbstring tokenizer mysqli pdo_mysql sockets
 
