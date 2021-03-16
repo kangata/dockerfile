@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+if [ $# -eq 0 ]
+then
+  if [ -d "$APP_ROOT/vendor" ]
+  then
+    php "$APP_ROOT/main.php"
+  else
+    composer install
+    composer dump -o
+
+    php "$APP_ROOT/main.php"
+  fi
+fi
+
+exec "$@"
