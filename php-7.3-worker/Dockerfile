@@ -9,9 +9,6 @@ RUN apk update add --no-cache git tzdata \
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-
-WORKDIR /usr/src/app
-
-ENV APP_ROOT .
+WORKDIR /var/www/html
 
 ENTRYPOINT ["docker-entrypoint"]

@@ -3,14 +3,14 @@ set -e
 
 if [ $# -eq 0 ]
 then
-  if [ -d "$APP_ROOT/vendor" ]
+  if [ -d "vendor" ]
   then
-    php "$APP_ROOT/main.php"
+    php "worker.php"
   else
     composer install
     composer dump -o
 
-    php "$APP_ROOT/main.php"
+    php "worker.php"
   fi
 fi
 
