@@ -4,6 +4,10 @@ COPY ./tzone.ini /usr/local/etc/php/conf.d/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	git \
+  zip \
+  unzip \
+  vim \
+  tmux \
 	tzdata \
 	libzip-dev \
 	libmcrypt-dev \
