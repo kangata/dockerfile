@@ -21,8 +21,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   libonig-dev
 
 RUN pecl install imagick
+RUN pecl install -o -f redis
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN rm -rf /tmp/pear
 
 RUN docker-php-ext-configure gd --enable-gd
 
@@ -36,6 +38,7 @@ RUN docker-php-ext-install \
   zip
 
 RUN docker-php-ext-enable imagick
+RUN docker-php-ext-enable redis
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
