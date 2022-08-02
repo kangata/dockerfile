@@ -3,19 +3,19 @@ FROM php:8.0-fpm
 COPY ./tzone.ini /usr/local/etc/php/conf.d/
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-	git \
+  git \
   zip \
   unzip \
   vim \
   tmux \
-	tzdata \
+  tzdata \
   supervisor \
-	libzip-dev \
-	libmcrypt-dev \
-	libjpeg-dev \
+  libzip-dev \
+  libmcrypt-dev \
+  libjpeg-dev \
   libpng-dev \
-	libvpx-dev \
-	libxpm-dev \
+  libvpx-dev \
+  libxpm-dev \
   libfreetype6-dev \
   libmagickwand-dev \
   libonig-dev
@@ -29,7 +29,6 @@ RUN rm -rf /tmp/pear
 RUN docker-php-ext-configure gd --enable-gd
 
 RUN docker-php-ext-install \
-  mbstring \
   tokenizer \
   mysqli \
   pdo_mysql \
@@ -43,4 +42,3 @@ RUN docker-php-ext-enable redis
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN mkdir -p /var/log/supervisor
-
