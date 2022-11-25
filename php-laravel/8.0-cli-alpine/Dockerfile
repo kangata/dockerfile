@@ -1,6 +1,6 @@
 FROM php:8.0-cli-alpine
 
-RUN apk add --no-cache libzip-dev tzdata unzip zip
+RUN apk update && apk add --no-cache libzip-dev tzdata unzip zip
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql zip
 
