@@ -1,5 +1,7 @@
 FROM quetzalarc/laravel-php:8.0-cli-alpine
 
+RUN addgroup -S -g1000 appgroup && adduser -S -H -G appgroup -u1000 appuser
+
 RUN apk add --no-cache supervisor
 
 RUN rm /usr/local/bin/docker-php-entrypoint
