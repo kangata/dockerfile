@@ -1,4 +1,4 @@
-FROM quetzalarc/laravel-php:8.0-cli-alpine
+FROM quetzalarc/php-laravel:8.0-cli-alpine
 
 RUN addgroup -S -g1000 appgroup && adduser -S -H -G appgroup -u1000 appuser
 
