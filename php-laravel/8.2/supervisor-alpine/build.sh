@@ -10,4 +10,4 @@ image_tag="$php_version-$php_tag"
 
 image="quetzalarc/$image_name:$image_tag"
 
-docker build -t "quetzalarc/$image" "$path"
+docker build -t "$image" "$path"
