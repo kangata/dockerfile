@@ -1,6 +1,7 @@
 FROM quetzalarc/php-laravel:8.2-cli-alpine
 
-RUN addgroup -S -g1000 appgroup && adduser -S -H -G appgroup -u1000 appuser
+RUN addgroup -g 1000 appgroup
+RUN adduser -H -D -G appgroup -u 1000 appuser
 
 RUN apk add --no-cache supervisor
 
