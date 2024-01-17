@@ -1,4 +1,4 @@
-FROM php:8.2-fpm-alpine
+FROM php:8.3-cli-alpine
 
 RUN apk add --no-cache icu-dev libzip-dev libpng-dev linux-headers pcre-dev tzdata unzip zip $PHPIZE_DEPS \
   && pecl install redis

@@ -1,8 +1,11 @@
 FROM php:8.2-cli-alpine
 
-RUN apk update && apk add --no-cache icu-dev libzip-dev tzdata unzip zip
+RUN apk add --no-cache icu-dev libzip-dev libpng-dev linux-headers pcre-dev tzdata unzip zip $PHPIZE_DEPS \
+  && pecl install redis
 
-RUN docker-php-ext-install intl mysqli pcntl pdo pdo_mysql zip
+RUN docker-php-ext-install gd intl mysqli pcntl pdo pdo_mysql sockets zip
+
+RUN docker-php-ext-enable redis
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
